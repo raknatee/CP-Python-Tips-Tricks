@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Type Hinting</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
+    <link rel="stylesheet" href="../main-style.css">
+    <link rel="stylesheet" href="../code-highlight.css">
+    <style>
+        .list {
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        .code-card {
+            min-width: 30vw;
+        }
+        
+        .code-card p {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>What is Type Hinting?</h1>
+    <p>Type hinting is a formal solution to statically indicate the type of a value within your Python code. It was specified in PEP 484 and introduced in Python 3.5.</p>
+    <p>Credit: <a href="https://realpython.com/lessons/type-hinting/">RealPython</a></p>
+    <p>Basically, It allows you to put the static type into Python code like <a href="https://en.wikipedia.org/wiki/Java_(programming_language)">Java</a> , <a href="https://www.typescriptlang.org/">Typescript</a> , etc.</p>
+    <hr>
+    <div class="list">
+        <div class="code-card">
+
+            <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span></pre></div>
+
+        </div>
+
+        <div class="code-card">
+
+            <div class="highlight"><pre>
+<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="nb">float</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">float</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</pre>
+            </div>
+
+        </div>
+
+    </div>
+    <hr>
+
+    <h2>Pros and Cons</h2>
+    <h3>Pros</h3>
+    <ul>
+        <li>
+            <p>IDE can understand your code better.</p>
+            <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Candy</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+
+<span class="k">def</span> <span class="nf">are_two_candies_same_color</span><span class="p">(</span><span class="n">candy1</span><span class="p">,</span> <span class="n">candy2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">candy1</span><span class="o">.</span><span class="n">color</span> <span class="o">==</span> <span class="n">candy2</span><span class="o">.</span><span class="n">color</span>
+    
+<span class="n">red_candy</span> <span class="o">=</span> <span class="n">Candy</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">blue_candy</span> <span class="o">=</span> <span class="n">Candy</span><span class="p">(</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">are_two_candies_same_color</span><span class="p">(</span><span class="n">red_candy</span><span class="p">, </span><span class="n">blue_candy</span><span class="p">))</span>
+</pre></div>
+            <hr>
+            <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Candy</span><span class="p">:</span>
+    <span class="n">color</span><span class="p">:</span><span class="nb">str</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+
+<span class="k">def</span> <span class="nf">are_two_candies_same_color</span><span class="p">(</span><span class="n">candy1</span><span class="p">:</span><span class="n">Candy</span><span class="p">,</span> <span class="n">candy2</span><span class="p">:</span><span class="n">Candy</span><span class="p">)</span><span class="o"> -&gt;</span><span class="nb"> bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">candy1</span><span class="o">.</span><span class="n">color</span> <span class="o">==</span> <span class="n">candy2</span><span class="o">.</span><span class="n">color</span>
+
+<span class="n">red_candy</span> <span class="o">=</span> <span class="n">Candy</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">blue_candy</span> <span class="o">=</span> <span class="n">Candy</span><span class="p">(</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">are_two_candies_same_color</span><span class="p">(</span><span class="n">red_candy</span><span class="p">,</span><span class="n">blue_candy</span><span class="p">))</span>
+</pre></div>
+            <hr>
+            <img src="./candy.png" class="img-full">
+        </li>
+    </ul>
+
+    <h3>Cons</h3>
+    <ul>
+        <li>
+            <p>Learning curve</p>
+        </li>
+    </ul>
+    <h3>PS.</h3>
+    <ul>
+        <li>
+            <p>
+                Actually, Python does not do anything about type checking.
+            </p>
+        </li>
+        <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    do something</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">func</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+        <br>
+        <pre>
+        <code>output:
+1
+</code>
+</pre>
+        <li>
+            <p>However, You can install <a href="https://mypy.readthedocs.io/en/stable/">mypy</a> and your IDE will be able to check your type before running the code.</p>
+            <img src="./mypy.png" alt="" class="img-full" style="height: 100%;">
+        </li>
+    </ul>
+
+</body>
+
+</html>

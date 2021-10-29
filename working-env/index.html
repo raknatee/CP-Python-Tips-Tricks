@@ -10,10 +10,74 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./main-style.css">
+    <link rel="stylesheet" href="../main-style.css">
+    <style>
+        .list {
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        .env-tool {
+            text-align: center;
+        }
+        
+        .env-tool img {
+            height: 15vh;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        .ide {
+            height: 50vh;
+        }
+    </style>
 </head>
 
 <body>
+    <h1>Working Environment</h1>
+    <div style="text-align: center;">
+        <img src="./img/Slide2.PNG" class="img-full" alt="">
+
+    </div>
+    <p>Basically, there are many ways to create the environment.</p>
+    <div class="list">
+        <a href="https://www.docker.com/" class="env-tool">
+            <h2>Docker</h2>
+            <img src="./img/docker.png">
+        </a>
+        <a href="https://pypi.org/project/pipenv/" class="env-tool">
+            <h2>Pipenv</h2>
+            <code>
+                pipenv
+            </code>
+        </a>
+        <a href="https://docs.python.org/3/tutorial/venv.html" class="env-tool">
+            <h2>Virtual Environments</h2>
+            <code>
+                venv
+            </code>
+        </a>
+        </a>
+        <a href="https://www.anaconda.com/products/individual" class="env-tool">
+            <h2>Anaconda&Conda</h2>
+            <img src="./img/Anaconda.png">
+        </a>
+
+
+    </div>
+    <h1>Making your favorite IDE&editor understands ENV</h1>
+    <div style="text-align: center;">
+        <img src="./img/Slide1.PNG" class="img-full ide" alt="">
+
+    </div>
+
+    <h2>VS Code</h2>
+
+    <h3>pipenv, venv, Conda</h3>
+
+    <h2>Q: Why do we need to care about SETUP?</h2>
 
 </body>
 
