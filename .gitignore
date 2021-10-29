@@ -1,5 +1,6 @@
 pygments/output/
 pygments/code.py
+pygments/.vscode
 
 # Byte-compiled / optimized / DLL files
 
