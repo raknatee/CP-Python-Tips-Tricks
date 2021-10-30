@@ -44,7 +44,7 @@
 
     </div>
     <hr>
-    <h2>Reading File</h2>
+    <h2>Reading a File</h2>
     <pre>
     <code># very-long-file.txt
 1, 2, 2, 5, -, 5
@@ -69,6 +69,21 @@
 </pre></div>
 
     </div>
+    <hr>
+    <h2>Reading a File with <a href="https://realpython.com/introduction-to-python-generators/">Generators</a> </h2>
+    <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Generator</span>
+
+<span class="k">def</span> <span class="nf">read_data_line_by_line</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Generator</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">]:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./very-long-file.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">data_file</span><span class="p">:</span>
+        <span class="k">while</span> <span class="n">line</span><span class="o">:=</span><span class="n">data_file</span><span class="o">.</span><span class="n">readline</span><span class="p">():</span>
+            <span class="k">yield</span> <span class="n">line</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">read_data_line_by_line</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">))</span>
+
+<span class="n">main</span><span class="p">()</span>
+</pre></div>
 </body>
 
 </html>
